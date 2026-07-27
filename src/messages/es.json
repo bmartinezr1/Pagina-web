@@ -1,0 +1,131 @@
+{
+  "site": {
+    "title": "Brandon Dev — Desarrollador Full-Stack",
+    "description": "Transformo ideas en software escalable, rápido y de alto rendimiento. Desarrollo web, aplicaciones SaaS y automatizaciones.",
+    "url": "https://brandondev.com"
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "about": "Sobre Mí",
+    "contact": "Contacto",
+    "language": "Idioma"
+  },
+  "hero": {
+    "badge": "Desarrollador Full-Stack Senior",
+    "headline": "Transformo ideas en",
+    "headlineAccent": "software escalable",
+    "subheadline": "Creo aplicaciones web modernas, rápidas y centradas en resultados que impulsan tu negocio al siguiente nivel.",
+    "ctaPrimary": "Agendar Llamada",
+    "ctaSecondary": "Ver Portafolio",
+    "techBadges": ["React", "Next.js", "Node.js", "PostgreSQL", "TypeScript", "Tailwind"]
+  },
+  "services": {
+    "title": "Servicios",
+    "subtitle": "Soluciones digitales que generan impacto real",
+    "items": [
+      {
+        "title": "Web & Landing Pages",
+        "description": "Sitios web profesionales y landing pages optimizadas para conversión con diseño moderno y rendimiento excepcional.",
+        "features": ["Diseño responsive", "SEO on-page", "Optimización Core Web Vitals", "Analytics integrados"],
+        "icon": "Globe"
+      },
+      {
+        "title": "Apps Web & SaaS",
+        "description": "Aplicaciones web a medida, dashboards administrativos y plataformas SaaS escalables con arquitectura moderna.",
+        "features": ["Arquitectura escalable", "Autenticación segura", "Panel de administración", "API REST/GraphQL"],
+        "icon": "LayoutDashboard"
+      },
+      {
+        "title": "APIs & Automatizaciones",
+        "description": "Integraciones de terceros, automatización de flujos de trabajo y APIs robustas para conectar tu ecosistema digital.",
+        "features": ["Integración continua", "Webhooks en tiempo real", "Documentación OpenAPI", "Monitoreo y alertas"],
+        "icon": "Zap"
+      },
+      {
+        "title": "Performance & SEO",
+        "description": "Auditoría y optimización de rendimiento web, SEO técnico y estrategias para mejorar tu presencia en buscadores.",
+        "features": ["Lighthouse 95+", "SEO Técnico", "Optimización de imágenes", "Arquitectura JAMstack"],
+        "icon": "Gauge"
+      }
+    ]
+  },
+  "portfolio": {
+    "title": "Portafolio",
+    "subtitle": "Proyectos que hablan por sí solos",
+    "filters": {
+      "all": "Todos",
+      "fullstack": "Full-Stack",
+      "uiux": "UI/UX",
+      "apis": "APIs",
+      "open-source": "Open Source"
+    },
+    "viewProject": "Ver Proyecto",
+    "liveDemo": "Demo en Vivo",
+    "sourceCode": "Código Fuente",
+    "backToProjects": "← Volver a proyectos",
+    "problem": "El Problema",
+    "solution": "La Solución",
+    "technologies": "Tecnologías",
+    "results": "Resultados",
+    "noProjects": "No hay proyectos en esta categoría."
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "subtitle": "Pasión por construir software que importa",
+    "bio1": "Soy Brandon, desarrollador full-stack apasionado por crear aplicaciones web escalables. Me especializo en React, Next.js y Node.js, combinando diseño moderno con código limpio y buenas prácticas.",
+    "bio2": "Creo firmemente en el poder del software bien construido para transformar negocios. Cada proyecto es una oportunidad para resolver problemas reales con tecnología de punta.",
+    "techFrontend": "Frontend",
+    "techBackend": "Backend",
+    "techDevops": "DevOps",
+    "techTools": "Herramientas"
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Trabajemos juntos en tu próximo proyecto",
+    "form": {
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "email": "Correo Electrónico",
+      "emailPlaceholder": "tu@correo.com",
+      "subject": "Asunto",
+      "subjectPlaceholder": "¿En qué puedo ayudarte?",
+      "message": "Mensaje",
+      "messagePlaceholder": "Cuéntame sobre tu proyecto...",
+      "submit": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "success": "Mensaje enviado con éxito. Te responderé pronto.",
+      "error": "Error al enviar el mensaje. Intenta de nuevo.",
+      "validation": {
+        "nameRequired": "El nombre es obligatorio",
+        "nameMin": "Mínimo 2 caracteres",
+        "emailRequired": "El correo es obligatorio",
+        "emailInvalid": "Correo electrónico inválido",
+        "subjectRequired": "El asunto es obligatorio",
+        "subjectMin": "Mínimo 5 caracteres",
+        "messageRequired": "El mensaje es obligatorio",
+        "messageMin": "Mínimo 20 caracteres"
+      }
+    },
+    "whatsapp": "Escríbeme por WhatsApp",
+    "or": "o"
+  },
+  "footer": {
+    "description": "Desarrollador Full-Stack especializado en crear software escalable y de alto rendimiento.",
+    "quickLinks": "Enlaces Rápidos",
+    "technologies": "Tecnologías",
+    "social": "Redes Sociales",
+    "copyright": "Todos los derechos reservados."
+  },
+  "cta": {
+    "title": "¿Listo para transformar tu idea en realidad?",
+    "subtitle": "Agenda una llamada gratuita y descubre cómo puedo ayudarte a alcanzar tus objetivos.",
+    "button": "Agendar Llamada Gratuita"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "La página que buscas no existe o ha sido movida.",
+    "button": "Volver al Inicio"
+  }
+}
