@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation'
 import { setRequestLocale } from 'next-intl/server'
 import { getTranslations } from 'next-intl/server'
 import { getProjectBySlug, projects } from '@/data/projects'
-import { Button, buttonVariants } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import { ArrowLeft, ExternalLink } from 'lucide-react'
@@ -38,12 +38,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Project Not Found' }
   }
 
-  const t = await getTranslations({ locale, namespace: 'portfolio' })
-  const title = `${project.slug} | ${t('title')}`
+  const t = await getTranslations({ locale, namespace: 'projects' })
+  const pt = await getTranslations({ locale, namespace: 'portfolio' })
+  const title = `${t(`${slug}.title`)} | ${pt('title')}`
 
   return {
     title,
-    description: project.technologies.join(', '),
+    description: t(`${slug}.description`),
     alternates: {
       languages: {
         es: `/es/projects/${slug}`,
@@ -60,13 +61,21 @@ export default async function ProjectPage({ params }: Props) {
   const project = getProjectBySlug(slug)
   if (!project) notFound()
 
-  const t = await getTranslations('portfolio')
+  const pt = await getTranslations('portfolio')
+  const t = await getTranslations('projects')
 
   const isMetricLocale = locale === 'es'
   const metrics = project.metrics.map((m) => ({
     label: isMetricLocale ? m.label : m.labelEn,
     value: m.value,
   }))
+
+  const projectPath = `${slug}`
+  const title = t(`${projectPath}.title`)
+  const description = t(`${projectPath}.description`)
+  const problem = t(`${projectPath}.problem`)
+  const solution = t(`${projectPath}.solution`)
+  const results_text = t(`${projectPath}.results`)
 
   return (
     <div className="pt-24">
@@ -76,7 +85,7 @@ export default async function ProjectPage({ params }: Props) {
           className="mb-8 inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft className="size-4" />
-          {t('backToProjects')}
+          {pt('backToProjects')}
         </Link>
 
         <div className="grid gap-12 lg:grid-cols-5">
@@ -100,52 +109,43 @@ export default async function ProjectPage({ params }: Props) {
           </div>
 
           <div className="lg:col-span-2 lg:pt-12">
-            <h1 className="mb-6 text-3xl font-bold tracking-tight capitalize">
-              {slug.replace(/-/g, ' ')}
+            <h1 className="mb-6 text-3xl font-bold tracking-tight">
+              {title}
             </h1>
+
+            <p className="mb-8 text-muted-foreground">
+              {description}
+            </p>
 
             <div className="mb-8 space-y-6">
               <div>
                 <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                  {t('problem')}
+                  {pt('problem')}
                 </h2>
-                <p className="text-muted-foreground">
-                  {locale === 'es'
-                    ? 'El cliente necesitaba una solución moderna que resolviera problemas de escalabilidad y rendimiento en su infraestructura existente.'
-                    : 'The client needed a modern solution to address scalability and performance issues in their existing infrastructure.'}
-                </p>
+                <p className="text-muted-foreground">{problem}</p>
               </div>
 
               <div>
                 <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                  {t('solution')}
+                  {pt('solution')}
                 </h2>
-                <p className="text-muted-foreground">
-                  {locale === 'es'
-                    ? 'Implementé una arquitectura basada en microservicios con Next.js en el frontend y una API robusta en el backend, optimizando cada capa para máximo rendimiento.'
-                    : 'I implemented a microservices architecture with Next.js on the frontend and a robust API on the backend, optimizing each layer for maximum performance.'}
-                </p>
+                <p className="text-muted-foreground">{solution}</p>
               </div>
 
               <div>
                 <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                  {t('results')}
+                  {pt('results')}
                 </h2>
-                <div className="grid grid-cols-3 gap-4">
-                  {metrics.map((metric) => (
-                    <div
-                      key={metric.label}
-                      className="rounded-lg border border-border/50 bg-card/50 p-3 text-center"
-                    >
-                      <div className="text-xl font-bold text-primary">
-                        {metric.value}
-                      </div>
-                      <div className="text-xs text-muted-foreground">
-                        {metric.label}
-                      </div>
-                    </div>
+                <p className="mb-4 text-muted-foreground">{results_text}</p>
+                <p className="text-sm text-muted-foreground">
+                  {metrics.map((m, i) => (
+                    <span key={m.label}>
+                      <span className="font-semibold text-primary">{m.value}</span>
+                      {' '}{m.label}
+                      {i < metrics.length - 1 && <span className="mx-2 text-muted-foreground/40">·</span>}
+                    </span>
                   ))}
-                </div>
+                </p>
               </div>
             </div>
 
@@ -158,7 +158,7 @@ export default async function ProjectPage({ params }: Props) {
                   className={cn(buttonVariants())}
                 >
                   <ExternalLink className="mr-2 size-4" />
-                  {t('liveDemo')}
+                  {pt('liveDemo')}
                 </a>
               )}
               {project.repoUrl && (
@@ -169,7 +169,7 @@ export default async function ProjectPage({ params }: Props) {
                   className={cn(buttonVariants({ variant: 'outline' }))}
                 >
                   <Github className="mr-2 size-4" />
-                  {t('sourceCode')}
+                  {pt('sourceCode')}
                 </a>
               )}
             </div>

@@ -8,6 +8,7 @@ export type Metric = {
 
 export type Project = {
   slug: string
+  titleKey: string
   category: ProjectCategory
   technologies: string[]
   metrics: Metric[]

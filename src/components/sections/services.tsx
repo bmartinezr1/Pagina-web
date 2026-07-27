@@ -27,8 +27,8 @@ export function Services() {
             return (
               <motion.div
                 key={service.titleKey}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ y: 30 }}
+                whileInView={{ y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 whileHover={{ y: -5 }}

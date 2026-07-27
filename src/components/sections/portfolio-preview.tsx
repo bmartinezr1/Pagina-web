@@ -15,6 +15,10 @@ export function PortfolioPreview() {
   const locale = useLocale()
   const [activeFilter, setActiveFilter] = useState<ProjectCategory | 'all'>('all')
 
+  const availableCategories = categories.filter(
+    (c) => c.key === 'all' || projects.some((p) => p.category === c.key)
+  )
+
   const filteredProjects =
     activeFilter === 'all'
       ? projects
@@ -32,7 +36,7 @@ export function PortfolioPreview() {
         </div>
 
         <div className="mb-10 flex flex-wrap justify-center gap-2">
-          {categories.map(({ key, labelKey }) => (
+          {availableCategories.map(({ key, labelKey }) => (
             <button
               key={key}
               onClick={() => setActiveFilter(key)}
@@ -48,7 +52,7 @@ export function PortfolioPreview() {
         </div>
 
         {filteredProjects.length > 0 ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mx-auto max-w-4xl space-y-8">
             <AnimatePresence mode="popLayout">
               {filteredProjects.map((project) => (
                 <ProjectCard
