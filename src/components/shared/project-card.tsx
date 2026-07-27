@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import { ArrowUpRight } from 'lucide-react'
 import { Link } from '@/i18n/navigation'
+import { ProjectImage } from '@/components/shared/project-image'
 import type { Project } from '@/types'
 
 type Props = {
@@ -19,14 +20,14 @@ export function ProjectCard({ project, locale }: Props) {
   return (
     <motion.div
       layout
-      initial={{ x: -20, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      exit={{ x: -20, opacity: 0 }}
+      initial={{ x: -20 }}
+      animate={{ x: 0 }}
+      exit={{ x: -20 }}
       transition={{ duration: 0.3 }}
       className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 sm:flex"
     >
-      <div className="flex items-center justify-center bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5 sm:w-80 shrink-0 aspect-video sm:aspect-auto">
-        <span className="text-6xl text-muted-foreground/20 font-bold">{project.slug.charAt(0).toUpperCase()}</span>
+      <div className="relative flex items-center justify-center bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5 sm:w-80 shrink-0 aspect-video sm:aspect-auto overflow-hidden">
+        <ProjectImage src={project.images[0]} fallback={project.slug.charAt(0).toUpperCase()} />
       </div>
 
       <div className="flex flex-col justify-center p-6 sm:p-8">

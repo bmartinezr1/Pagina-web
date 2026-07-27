@@ -127,6 +127,7 @@
     "gestion-cuentas-hospitalarias": {
       "title": "Hospital Account Management",
       "description": "Automated system for centralized user account creation at Hospital Penco Lirquen, using Playwright to automate workflows and reduce operational times.",
+      "stackDescription": "Pure PHP backend with MySQL for data management, Playwright (JavaScript) browser automation to create accounts across hospital systems, and Bootstrap frontend for a clean, responsive admin interface.",
       "problem": "The hospital needed to create and manage over 12 different types of user accounts for its staff, a slow manual process prone to errors.",
       "solution": "I built a PHP solution with Playwright that automates account creation and management, centralizing the entire workflow in a unified Bootstrap interface.",
       "results": "100% of the account creation process was automated, eliminating manual errors and drastically reducing IT department operational times."
@@ -134,6 +135,7 @@
     "motor-validacion-ia": {
       "title": "AI Validation Engine",
       "description": "Award-winning platform from a programming competition that analyzes construction progress in industrial installation projects, using Gemini Flash to verify and contrast weekly reports.",
+      "stackDescription": "Laravel (PHP) backend integrating Gemini Flash API for report analysis, React frontend for data visualization, PostgreSQL as the relational database, and Python for preprocessing reports before AI analysis.",
       "problem": "Industrial installation companies had to manually verify construction progress by contrasting weekly reports, a slow process with high probability of human error.",
       "solution": "I built a Laravel and React platform that integrates Gemini Flash to automatically analyze reports, contrast them with the previous week, and measure real construction progress.",
       "results": "The system achieved 90% accuracy in progress analysis, earning first place in the programming competition."

@@ -127,6 +127,7 @@
     "gestion-cuentas-hospitalarias": {
       "title": "Gestión de Cuentas Hospitalarias",
       "description": "Sistema automatizado para la creación centralizada de cuentas de usuario en el Hospital Penco Lirquen, utilizando Playwright para automatizar workflows y reducir tiempos operativos.",
+      "stackDescription": "Backend en PHP puro con MySQL para la gestión de datos, automatización de navegador con Playwright (JavaScript) para crear cuentas en los sistemas del hospital, y Bootstrap en el frontend para una interfaz administrativa limpia y responsive.",
       "problem": "El hospital necesitaba crear y gestionar más de 12 tipos distintos de cuentas de usuario para su personal, un proceso manual lento y propenso a errores.",
       "solution": "Desarrollé una solución en PHP con Playwright que automatiza la creación y gestión de cuentas, centralizando todo el flujo en una interfaz unificada con Bootstrap.",
       "results": "Se logró automatizar el 100% del proceso de creación de cuentas, eliminando errores manuales y reduciendo drásticamente los tiempos operativos del departamento de TI."
@@ -134,6 +135,7 @@
     "motor-validacion-ia": {
       "title": "Motor de Validación IA",
       "description": "Plataforma ganadora de una competencia de programación que analiza el avance de obra en proyectos de instalación y montaje industrial, usando Gemini Flash para verificar y contrastar reportes semanales.",
+      "stackDescription": "Backend con Laravel (PHP) y API de Gemini Flash para el análisis de reportes, frontend en React para la visualización de datos, PostgreSQL como base de datos relacional, y Python para el preprocesamiento de los reportes antes del análisis con IA.",
       "problem": "Las empresas de instalación industrial necesitaban verificar manualmente el avance de obra contrastando reportes semanales, un proceso lento y con alta probabilidad de error humano.",
       "solution": "Construí una plataforma con Laravel y React que integra Gemini Flash para analizar automáticamente los reportes, contrastarlos con la semana anterior y medir el progreso real de la obra.",
       "results": "El sistema alcanzó un 90% de precisión en el análisis de avance, obteniendo el primer lugar en la competencia de programación."

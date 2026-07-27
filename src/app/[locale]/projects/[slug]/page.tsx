@@ -6,6 +6,7 @@ import { buttonVariants } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import { ArrowLeft, ExternalLink } from 'lucide-react'
+import { ProjectImage } from '@/components/shared/project-image'
 
 function Github({ className }: { className?: string }) {
   return (
@@ -73,6 +74,7 @@ export default async function ProjectPage({ params }: Props) {
   const projectPath = `${slug}`
   const title = t(`${projectPath}.title`)
   const description = t(`${projectPath}.description`)
+  const stackDescription = t(`${projectPath}.stackDescription`)
   const problem = t(`${projectPath}.problem`)
   const solution = t(`${projectPath}.solution`)
   const results_text = t(`${projectPath}.results`)
@@ -89,14 +91,25 @@ export default async function ProjectPage({ params }: Props) {
         </Link>
 
         <div className="grid gap-12 lg:grid-cols-5">
-          <div className="lg:col-span-3">
-            <div className="mb-8 aspect-video w-full overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5 flex items-center justify-center">
-              <span className="text-8xl text-muted-foreground/10">
-                {slug.charAt(0).toUpperCase()}
-              </span>
-            </div>
+          <div className="lg:col-span-3 space-y-6">
+            {project.images.map((imgSrc) => (
+              <div
+                key={imgSrc}
+                className="relative aspect-video w-full overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5 flex items-center justify-center"
+              >
+                <ProjectImage src={imgSrc} fallback={slug.charAt(0).toUpperCase()} />
+              </div>
+            ))}
 
-            <div className="mb-8 flex flex-wrap gap-2">
+            {project.images.length === 0 && (
+              <div className="aspect-video w-full rounded-2xl bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5 flex items-center justify-center">
+                <span className="text-8xl text-muted-foreground/10">
+                  {slug.charAt(0).toUpperCase()}
+                </span>
+              </div>
+            )}
+
+            <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
@@ -116,6 +129,15 @@ export default async function ProjectPage({ params }: Props) {
             <p className="mb-8 text-muted-foreground">
               {description}
             </p>
+
+            <div className="mb-8">
+              <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
+                {pt('technologies')}
+              </h2>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {stackDescription}
+              </p>
+            </div>
 
             <div className="mb-8 space-y-6">
               <div>

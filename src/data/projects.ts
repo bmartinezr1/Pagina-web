@@ -11,7 +11,7 @@ export const projects: Project[] = [
       { label: 'Proceso automatizado', labelEn: 'Automated process', value: '100%' },
       { label: 'Entorno', labelEn: 'Environment', value: 'Local' },
     ],
-    images: ['/images/projects/hospital-1.jpg'],
+    images: ['/images/projects/hospital-1.jpg', '/images/projects/hospital-2.jpg', '/images/projects/hospital-3.jpg'],
     featured: true,
   },
   {
@@ -24,7 +24,7 @@ export const projects: Project[] = [
       { label: 'Competencia', labelEn: 'Competition', value: '1er Lugar' },
       { label: 'Reportes/día', labelEn: 'Reports/day', value: '50+' },
     ],
-    images: ['/images/projects/ia-1.jpg'],
+    images: ['/images/projects/ia-1.jpg', '/images/projects/ia-2.jpg'],
     featured: true,
   },
 ]
