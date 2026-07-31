@@ -7,6 +7,7 @@ import { TooltipProvider } from '@/components/ui/tooltip'
 import { Toaster } from '@/components/ui/sonner'
 import { Navbar } from '@/components/layout/navbar'
 import { Footer } from '@/components/layout/footer'
+import { GrainOverlay } from '@/components/shared/grain-overlay'
 
 type Props = {
   children: React.ReactNode
@@ -41,6 +42,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <Footer />
           </div>
           <Toaster position="bottom-right" />
+          <GrainOverlay />
         </TooltipProvider>
       </ThemeProvider>
     </NextIntlClientProvider>

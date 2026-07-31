@@ -24,7 +24,7 @@ export function ProjectCard({ project, locale }: Props) {
       animate={{ x: 0 }}
       exit={{ x: -20 }}
       transition={{ duration: 0.3 }}
-      className="group relative overflow-hidden rounded-2xl border border-border/50 bg-card transition-all hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 sm:flex"
+      className="group relative overflow-hidden rounded-2xl border border-primary/10 bg-card/30 backdrop-blur-sm transition-all hover:border-primary/30 hover:card-glow sm:flex"
     >
       <div className="relative flex items-center justify-center bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5 sm:w-80 shrink-0 aspect-video sm:aspect-auto overflow-hidden">
         <ProjectImage src={project.images[0]} fallback={project.slug.charAt(0).toUpperCase()} />

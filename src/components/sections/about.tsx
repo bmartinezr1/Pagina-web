@@ -15,7 +15,7 @@ export function About() {
 
   return (
     <section id="about" className="relative py-24 md:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-primary/[0.02] to-background" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-accent/[0.02] to-background" />
       <ScrollReveal className="container relative">
         <div className="mx-auto mb-16 max-w-2xl text-center">
           <SectionBadge text={t('about.title')} />
@@ -41,7 +41,7 @@ export function About() {
                 return (
                   <div key={category.nameKey}>
                     <div className="mb-4 flex items-center gap-2">
-                      <Icon className="size-4 text-muted-foreground" />
+                      <Icon className="size-4 text-primary" />
                       <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                         {t(category.nameKey)}
                       </h3>
@@ -49,13 +49,13 @@ export function About() {
                     <div className="space-y-2">
                       {category.items.map((tech) => (
                         <Tooltip key={tech.name}>
-                          <TooltipTrigger className="flex w-full items-center gap-3 rounded-lg border border-border/40 bg-card/30 px-3 py-2.5 transition-colors hover:border-primary/30 hover:bg-card/60 cursor-pointer">
+                          <TooltipTrigger className="flex w-full items-center gap-3 rounded-lg border border-primary/10 bg-card/30 px-3 py-2.5 backdrop-blur-sm transition-all hover:border-primary/30 hover:bg-card/60 hover:card-glow cursor-pointer">
                             <span className="flex-1 text-sm font-medium">
                               {tech.name}
                             </span>
                             <div className="h-1.5 w-16 overflow-hidden rounded-full bg-muted">
                               <div
-                                className="h-full rounded-full bg-primary transition-all"
+                                className="h-full rounded-full bg-gradient-to-r from-primary to-accent transition-all"
                                 style={{ width: `${tech.level}%` }}
                               />
                             </div>

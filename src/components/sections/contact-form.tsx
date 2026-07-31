@@ -164,18 +164,21 @@ export function ContactFormSection() {
               <p className="text-sm text-destructive">{state.error}</p>
             )}
 
-            <Button type="submit" className="w-full" disabled={pending}>
-              {pending ? (
-                <>
-                  <Loader2 className="mr-2 size-4 animate-spin" />
-                  {t('contact.form.sending')}
-                </>
-              ) : (
-                <>
-                  <Send className="mr-2 size-4" />
-                  {t('contact.form.submit')}
-                </>
-              )}
+            <Button type="submit" className="w-full relative overflow-hidden group" disabled={pending}>
+              <span className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <span className="relative z-10 flex items-center justify-center">
+                {pending ? (
+                  <>
+                    <Loader2 className="mr-2 size-4 animate-spin" />
+                    {t('contact.form.sending')}
+                  </>
+                ) : (
+                  <>
+                    <Send className="mr-2 size-4" />
+                    {t('contact.form.submit')}
+                  </>
+                )}
+              </span>
             </Button>
           </form>
 

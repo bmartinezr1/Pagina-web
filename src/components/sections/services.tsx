@@ -32,25 +32,28 @@ export function Services() {
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 whileHover={{ y: -5 }}
-                className="group relative rounded-2xl border border-border/50 bg-card/50 p-6 backdrop-blur-sm transition-all hover:border-primary/30 hover:bg-card/80 hover:shadow-lg hover:shadow-primary/5 sm:p-8"
+                className="group relative rounded-2xl border border-primary/10 bg-card/30 p-6 backdrop-blur-sm transition-all hover:border-primary/30 hover:bg-card/60 hover:card-glow sm:p-8"
               >
-                <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
-                  <Icon className="size-6" />
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative">
+                  <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary/20 group-hover:text-primary">
+                    <Icon className="size-6" />
+                  </div>
+                  <h3 className="mb-3 text-xl font-semibold">
+                    {t(service.titleKey)}
+                  </h3>
+                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+                    {t(service.descriptionKey)}
+                  </p>
+                  <ul className="space-y-2">
+                    {service.featuresKeys.map((featureKey) => (
+                      <li key={featureKey} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                        <span>{t(featureKey)}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="mb-3 text-xl font-semibold">
-                  {t(service.titleKey)}
-                </h3>
-                <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
-                  {t(service.descriptionKey)}
-                </p>
-                <ul className="space-y-2">
-                  {service.featuresKeys.map((featureKey) => (
-                    <li key={featureKey} className="flex items-start gap-2 text-sm text-muted-foreground">
-                      <Check className="mt-0.5 size-4 shrink-0 text-primary" />
-                      <span>{t(featureKey)}</span>
-                    </li>
-                  ))}
-                </ul>
               </motion.div>
             )
           })}
