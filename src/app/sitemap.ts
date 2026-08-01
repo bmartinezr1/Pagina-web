@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { projects } from '@/data/projects'
 
 const locales = ['es', 'en'] as const
-const baseUrl = 'https://brandondev.com'
+const baseUrl = 'https://brandon-dev.com'
 
 const pages = ['', '/contact'] as const
 

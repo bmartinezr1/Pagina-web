@@ -7,7 +7,7 @@ export const personalInfo = {
   phoneDigits: '56948038052',
   github: 'https://github.com/bmartinezr1',
   linkedin: 'https://www.linkedin.com/in/brandon-mart%C3%ADnez-ramos-231065426/',
-  domain: 'brandondev.com',
+  domain: 'brandon-dev.com',
   roleEs: 'Desarrollador Full-Stack',
   roleEn: 'Full-Stack Developer',
 }
