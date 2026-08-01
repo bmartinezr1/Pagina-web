@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react'
 import { Palette, Server, Container, GitBranch, Cloud, Code2, type LucideIcon } from 'lucide-react'
-import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiFramer, SiNodedotjs, SiPython, SiPostgresql, SiPrisma, SiDocker, SiVercel, SiGit, SiFigma, SiNotion } from 'react-icons/si'
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiFramer, SiNodedotjs, SiPython, SiPostgresql, SiPrisma, SiDocker, SiVercel, SiGit, SiFigma, SiNotion, SiPhp, SiLaravel } from 'react-icons/si'
 
 export type TechItem = {
   name: string
@@ -31,6 +31,8 @@ export const techCategories: TechCategory[] = [
     icon: Server,
     items: [
       { name: 'Node.js', level: 90, icon: SiNodedotjs },
+      { name: 'PHP', level: 85, icon: SiPhp },
+      { name: 'Laravel', level: 85, icon: SiLaravel },
       { name: 'Python', level: 75, icon: SiPython },
       { name: 'PostgreSQL', level: 85, icon: SiPostgresql },
       { name: 'Prisma', level: 85, icon: SiPrisma },
