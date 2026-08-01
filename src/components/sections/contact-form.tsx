@@ -75,7 +75,7 @@ export function ContactFormSection() {
     setSubmitted(true)
   }
 
-  if (submitted && state?.success) {
+  if (submitted && !pending && state?.success) {
     return (
       <section id="contact" className="relative py-24 md:py-32">
         <div className="absolute inset-0 bg-gradient-to-b from-background via-accent/[0.02] to-background" />
@@ -168,7 +168,7 @@ export function ContactFormSection() {
               )}
             </div>
 
-            {submitted && state && !state.success && (
+            {submitted && !pending && state && !state.success && (
               <p className="text-sm text-destructive">
                 {state.error === 'rate'
                   ? t('contact.form.rateLimited')
