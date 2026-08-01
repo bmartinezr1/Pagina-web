@@ -26,27 +26,27 @@
     "subtitle": "Digital solutions that drive real impact",
     "items": [
       {
-        "title": "Web & Landing Pages",
-        "description": "Professional websites and conversion-optimized landing pages with modern design and exceptional performance.",
-        "features": ["Responsive design", "On-page SEO", "Core Web Vitals optimization", "Integrated analytics"],
+        "title": "Websites",
+        "description": "We build modern, fast, professional websites that build trust and help turn visitors into new customers. Your business is available 24 hours a day, from any device.",
+        "features": ["Adaptive design for phones, tablets and computers", "Optimized for fast loading", "WhatsApp and contact form integration", "Custom development based on your business needs"],
         "icon": "Globe"
       },
       {
-        "title": "Web Apps & SaaS",
-        "description": "Custom web applications, admin dashboards, and scalable SaaS platforms built with modern architecture.",
-        "features": ["Scalable architecture", "Secure authentication", "Admin panel", "REST/GraphQL API"],
+        "title": "Custom Web Systems",
+        "description": "We develop personalized web platforms to digitize processes, organize information and improve your company's productivity — all from one secure platform.",
+        "features": ["Manage customers, sales and inventory", "Automation of internal processes", "Secure access for different users", "Scales as your business grows"],
         "icon": "LayoutDashboard"
       },
       {
-        "title": "APIs & Automation",
-        "description": "Third-party integrations, workflow automation, and robust APIs to connect your digital ecosystem.",
-        "features": ["Continuous integration", "Real-time webhooks", "OpenAPI documentation", "Monitoring & alerts"],
+        "title": "Automation & AI",
+        "description": "We automate repetitive tasks and implement smart assistants that answer questions, save time and improve customer service.",
+        "features": ["Chatbots for WhatsApp and websites", "24/7 automatic support", "Automation of tasks and processes", "Integration with your company's tools"],
         "icon": "Zap"
       },
       {
-        "title": "Performance & SEO",
-        "description": "Web performance auditing and optimization, technical SEO, and strategies to improve search rankings.",
-        "features": ["Lighthouse 95+", "Technical SEO", "Image optimization", "JAMstack architecture"],
+        "title": "Law 21.719 Compliance",
+        "description": "We adapt your website to Chile's new Personal Data Protection Law, implementing the necessary measures to collect information transparently and build greater trust with your customers.",
+        "features": ["Cookie consent banner", "Customized privacy policies", "Forms with informed consent", "Best practices for Law 21.719 compliance"],
         "icon": "Gauge"
       }
     ]
@@ -64,7 +64,7 @@
     "viewProject": "View Project",
     "liveDemo": "Live Demo",
     "sourceCode": "Source Code",
-    "backToProjects": "← Back to projects",
+    "backToProjects": "Back to projects",
     "problem": "The Problem",
     "solution": "The Solution",
     "technologies": "Technologies",
@@ -74,8 +74,15 @@
   "about": {
     "title": "About Me",
     "subtitle": "Passionate about building software that matters",
-    "bio1": "I'm Brandon, a full-stack developer passionate about building scalable web applications. I specialize in React, Next.js, and Node.js, combining modern design with clean code and best practices.",
-    "bio2": "I firmly believe in the power of well-crafted software to transform businesses. Every project is an opportunity to solve real problems with cutting-edge technology.",
+    "bio": [
+      "Hi, I'm Brandon, a Full-Stack developer from Concepción, Chile, and a Computer Science Engineering student.",
+      "I specialize in building web applications, automating processes and integrating systems to help companies work more efficiently. My goal is not just to write software, but to deliver solutions that simplify daily work, reduce errors and create real value.",
+      "I've worked on projects in the healthcare sector, building platforms that automate critical processes and integrate multiple systems into a single application. I've also worked on AI-based solutions, applying computer vision and AI models to solve real problems, such as the automatic validation of progress in construction projects.",
+      "One of these projects earned first place in Open Innovation AVA x UCSC 2026, an innovation competition focused on solving real industry challenges.",
+      "I work with technologies such as Laravel, PHP, React, Next.js, Python, PostgreSQL, MySQL and Docker, always prioritizing secure, scalable and maintainable applications.",
+      "I believe a good technology solution should be reliable, easy to use and designed for the people who will use it. If you have an idea or a process you want to digitize, I'd love to help you turn it into a useful, high-quality solution."
+    ],
+    "techTitle": "Tech Stack",
     "techFrontend": "Frontend",
     "techBackend": "Backend",
     "techDevops": "DevOps",
@@ -97,6 +104,7 @@
       "sending": "Sending...",
       "success": "Message sent successfully. I'll get back to you soon.",
       "error": "Error sending message. Please try again.",
+      "mailtoNote": "Your email app will open with the message ready to send.",
       "validation": {
         "nameRequired": "Name is required",
         "nameMin": "Minimum 2 characters",
@@ -125,20 +133,22 @@
   },
   "projects": {
     "gestion-cuentas-hospitalarias": {
-      "title": "Hospital Account Management",
-      "description": "Automated system for centralized user account creation at Hospital Penco Lirquen, using Playwright to automate workflows and reduce operational times.",
-      "stackDescription": "Pure PHP backend with MySQL for data management, Playwright (JavaScript) browser automation to create accounts across hospital systems, and Bootstrap frontend for a clean, responsive admin interface.",
-      "problem": "The hospital needed to create and manage over 12 different types of user accounts for its staff, a slow manual process prone to errors.",
-      "solution": "I built a PHP solution with Playwright that automates account creation and management, centralizing the entire workflow in a unified Bootstrap interface.",
-      "results": "100% of the account creation process was automated, eliminating manual errors and drastically reducing IT department operational times."
+      "title": "Hospital account management",
+      "description": "Centralized hospital account management",
+      "stackDescription": "Backend built with PHP 8.2 and MySQL, with a Bootstrap, jQuery and DataTables interface. Integration through Playwright (Node.js) to automate external systems, plus PHPMailer, PhpSpreadsheet and Docker deployment.",
+      "problem": "Creating accounts required entering the same information across different systems, performing manual validations and managing multiple requests, causing delays and increasing the risk of errors.",
+      "solution": "I built a portal that centralizes the whole process in a single form. The system validates employee information, manages permissions, integrates multiple platforms and automates account creation, activation and deactivation through controlled workflows.",
+      "results": "Automated account provisioning process.\nInternal and external system integration.\nReduced operational times and errors.\nSecure management with authentication and role-based access."
     },
     "motor-validacion-ia": {
-      "title": "AI Validation Engine",
-      "description": "Award-winning platform from a programming competition that analyzes construction progress in industrial installation projects, using Gemini Flash to verify and contrast weekly reports.",
-      "stackDescription": "Laravel (PHP) backend integrating Gemini Flash API for report analysis, React frontend for data visualization, PostgreSQL as the relational database, and Python for preprocessing reports before AI analysis.",
-      "problem": "Industrial installation companies had to manually verify construction progress by contrasting weekly reports, a slow process with high probability of human error.",
-      "solution": "I built a Laravel and React platform that integrates Gemini Flash to automatically analyze reports, contrast them with the previous week, and measure real construction progress.",
-      "results": "The system achieved 90% accuracy in progress analysis, earning first place in the programming competition."
+      "title": "Validation Platform",
+      "description": "Smart platform to validate construction progress using artificial intelligence",
+      "intro": "A web system built to verify that the progress reported in construction projects matches the real state of the site. The platform analyzes on-site photographs, daily reports and the project plan to automatically validate progress or flag it for review when there is uncertainty.",
+      "award": "Winning project — first place in Open Innovation AVA x UCSC 2026.",
+      "stackDescription": "Built with Laravel (PHP), React and PostgreSQL, integrating Google Gemini Flash for image and report analysis. It also uses Python for data processing and an API-based architecture for communication between its modules.",
+      "problem": "In construction projects, progress is usually based on reports sent from the field, with no objective way to verify that the photographic evidence supports the reported progress. This makes project tracking difficult and increases the risk of errors in decision-making.",
+      "solution": "I built a platform that integrates the project plan, daily reports and photographic evidence into a single workflow. Using artificial intelligence, the system analyzes each report and calculates a confidence level to automatically validate progress or flag it for review when needed.",
+      "results": "Automated validation of construction progress using AI.\nIntegration of planning, reports and photographic evidence.\nReduced time spent on manual reviews.\nGreater reliability in project progress tracking."
     }
   },
   "notFound": {

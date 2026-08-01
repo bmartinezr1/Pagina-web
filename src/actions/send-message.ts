@@ -1,6 +1,8 @@
 'use server'
 
+import { Resend } from 'resend'
 import { z } from 'zod'
+import { personalInfo } from '@/data/personal-info'
 
 const schema = z.object({
   name: z.string().min(2),
@@ -10,64 +12,48 @@ const schema = z.object({
   honeypot: z.string().max(0),
 })
 
-export type SendMessageResult = {
-  success: boolean
-  error?: string
-}
+export type SendMessageResult = { success: boolean }
 
 export async function sendMessage(
-  prevState: SendMessageResult | null,
+  _prevState: SendMessageResult,
   formData: FormData
 ): Promise<SendMessageResult> {
-  const raw = {
-    name: formData.get('name') as string,
-    email: formData.get('email') as string,
-    subject: formData.get('subject') as string,
-    message: formData.get('message') as string,
-    honeypot: formData.get('honeypot') as string,
-  }
-
-  const validated = schema.safeParse(raw)
-
-  if (!validated.success) {
-    return { success: false, error: 'Invalid form data' }
-  }
-
-  if (validated.data.honeypot) {
+  const honeypot = formData.get('honeypot')
+  if (typeof honeypot === 'string' && honeypot.length > 0) {
     return { success: true }
   }
 
-  try {
-    const { name, email, subject, message } = validated.data
+  const parsed = schema.safeParse({
+    name: formData.get('name'),
+    email: formData.get('email'),
+    subject: formData.get('subject'),
+    message: formData.get('message'),
+    honeypot: honeypot ?? '',
+  })
 
-    const res = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: 'Portfolio <onboarding@resend.dev>',
-        to: 'brmartinezr23@gmail.com',
-        replyTo: email,
-        subject: `[Portfolio] ${subject}`,
-        html: `
-          <h2>Nuevo mensaje desde el portafolio</h2>
-          <p><strong>Nombre:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Asunto:</strong> ${subject}</p>
-          <p><strong>Mensaje:</strong></p>
-          <p>${message}</p>
-        `,
-      }),
-    })
-
-    if (!res.ok) {
-      throw new Error('Failed to send email')
-    }
-
-    return { success: true }
-  } catch {
-    return { success: false, error: 'Error sending message. Please try again.' }
+  if (!parsed.success) {
+    return { success: false }
   }
+
+  const apiKey = process.env.RESEND_API_KEY
+  if (!apiKey) {
+    console.error('RESEND_API_KEY no configurada')
+    return { success: false }
+  }
+
+  const resend = new Resend(apiKey)
+  const { error } = await resend.emails.send({
+    from: process.env.EMAIL_FROM ?? 'onboarding@resend.dev',
+    to: [personalInfo.email],
+    replyTo: parsed.data.email,
+    subject: parsed.data.subject,
+    text: `Nombre: ${parsed.data.name}\nEmail: ${parsed.data.email}\n\n${parsed.data.message}`,
+  })
+
+  if (error) {
+    console.error(error)
+    return { success: false }
+  }
+
+  return { success: true }
 }

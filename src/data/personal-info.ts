@@ -1,6 +1,7 @@
 export const personalInfo = {
   name: 'Brandon Bastian Martinez Ramos',
   shortName: 'Brandon',
+  consoleName: 'Brandon Martínez',
   email: 'brmartinezr23@gmail.com',
   phone: '+56948038052',
   phoneDigits: '56948038052',

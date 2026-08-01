@@ -26,27 +26,27 @@
     "subtitle": "Soluciones digitales que generan impacto real",
     "items": [
       {
-        "title": "Web & Landing Pages",
-        "description": "Sitios web profesionales y landing pages optimizadas para conversión con diseño moderno y rendimiento excepcional.",
-        "features": ["Diseño responsive", "SEO on-page", "Optimización Core Web Vitals", "Analytics integrados"],
+        "title": "Páginas Web",
+        "description": "Diseñamos sitios web modernos, rápidos y profesionales que transmiten confianza y ayudan a convertir visitantes en nuevos clientes. Tu negocio estará disponible las 24 horas desde cualquier dispositivo.",
+        "features": ["Diseño adaptable para celulares, tablets y computadores", "Optimización para una carga rápida", "Integración con WhatsApp y formularios de contacto", "Desarrollo personalizado según las necesidades de tu negocio"],
         "icon": "Globe"
       },
       {
-        "title": "Apps Web & SaaS",
-        "description": "Aplicaciones web a medida, dashboards administrativos y plataformas SaaS escalables con arquitectura moderna.",
-        "features": ["Arquitectura escalable", "Autenticación segura", "Panel de administración", "API REST/GraphQL"],
+        "title": "Sistemas Web a Medida",
+        "description": "Desarrollamos plataformas web personalizadas para digitalizar procesos, organizar información y mejorar la productividad de tu empresa, todo desde una única plataforma segura.",
+        "features": ["Gestión de clientes, ventas e inventario", "Automatización de procesos internos", "Acceso seguro para distintos usuarios", "Escalable a medida que tu negocio crece"],
         "icon": "LayoutDashboard"
       },
       {
-        "title": "APIs & Automatizaciones",
-        "description": "Integraciones de terceros, automatización de flujos de trabajo y APIs robustas para conectar tu ecosistema digital.",
-        "features": ["Integración continua", "Webhooks en tiempo real", "Documentación OpenAPI", "Monitoreo y alertas"],
+        "title": "Automatización & IA",
+        "description": "Automatizamos tareas repetitivas e implementamos asistentes inteligentes para responder consultas, ahorrar tiempo y mejorar la atención de tus clientes.",
+        "features": ["Chatbots para WhatsApp y sitios web", "Atención automática 24/7", "Automatización de tareas y procesos", "Integración con herramientas de tu empresa"],
         "icon": "Zap"
       },
       {
-        "title": "Performance & SEO",
-        "description": "Auditoría y optimización de rendimiento web, SEO técnico y estrategias para mejorar tu presencia en buscadores.",
-        "features": ["Lighthouse 95+", "SEO Técnico", "Optimización de imágenes", "Arquitectura JAMstack"],
+        "title": "Cumplimiento Ley 21.719",
+        "description": "Adaptamos tu sitio web a la nueva Ley de Protección de Datos Personales de Chile, implementando las medidas necesarias para recopilar información de forma transparente y generar mayor confianza en tus clientes.",
+        "features": ["Banner de consentimiento de cookies", "Políticas de privacidad personalizadas", "Formularios con consentimiento informado", "Implementación de buenas prácticas para el cumplimiento de la Ley 21.719"],
         "icon": "Gauge"
       }
     ]
@@ -64,7 +64,7 @@
     "viewProject": "Ver Proyecto",
     "liveDemo": "Demo en Vivo",
     "sourceCode": "Código Fuente",
-    "backToProjects": "← Volver a proyectos",
+    "backToProjects": "Volver a proyectos",
     "problem": "El Problema",
     "solution": "La Solución",
     "technologies": "Tecnologías",
@@ -74,8 +74,15 @@
   "about": {
     "title": "Sobre Mí",
     "subtitle": "Pasión por construir software que importa",
-    "bio1": "Soy Brandon, desarrollador full-stack apasionado por crear aplicaciones web escalables. Me especializo en React, Next.js y Node.js, combinando diseño moderno con código limpio y buenas prácticas.",
-    "bio2": "Creo firmemente en el poder del software bien construido para transformar negocios. Cada proyecto es una oportunidad para resolver problemas reales con tecnología de punta.",
+    "bio": [
+      "Hola, soy Brandon, desarrollador Full-Stack de Concepción, Chile y estudiante de Ingeniería Civil Informática.",
+      "Me especializo en desarrollar aplicaciones web, automatizar procesos e integrar sistemas para ayudar a empresas a trabajar de forma más eficiente. Mi objetivo no es solo crear software, sino entregar soluciones que simplifiquen el trabajo diario, reduzcan errores y aporten valor real.",
+      "He participado en proyectos para el sector salud, desarrollando plataformas que automatizan procesos críticos e integran múltiples sistemas en una sola aplicación. También he trabajado en soluciones basadas en inteligencia artificial, aplicando visión computacional y modelos de IA para resolver problemas reales, como la validación automática del avance de proyectos de construcción.",
+      "Uno de estos proyectos fue reconocido con el primer lugar en Open Innovation AVA x UCSC 2026, una competencia de innovación enfocada en resolver desafíos reales de la industria.",
+      "Trabajo con tecnologías como Laravel, PHP, React, Next.js, Python, PostgreSQL, MySQL y Docker, siempre priorizando aplicaciones seguras, escalables y fáciles de mantener.",
+      "Creo que una buena solución tecnológica debe ser confiable, fácil de usar y estar pensada para las personas que la utilizarán. Si tienes una idea o un proceso que quieras digitalizar, estaré encantado de ayudarte a convertirlo en una solución útil y de calidad."
+    ],
+    "techTitle": "Stack Tecnológico",
     "techFrontend": "Frontend",
     "techBackend": "Backend",
     "techDevops": "DevOps",
@@ -97,6 +104,7 @@
       "sending": "Enviando...",
       "success": "Mensaje enviado con éxito. Te responderé pronto.",
       "error": "Error al enviar el mensaje. Intenta de nuevo.",
+      "mailtoNote": "Al enviar se abrirá tu correo con el mensaje listo para enviarse.",
       "validation": {
         "nameRequired": "El nombre es obligatorio",
         "nameMin": "Mínimo 2 caracteres",
@@ -125,20 +133,22 @@
   },
   "projects": {
     "gestion-cuentas-hospitalarias": {
-      "title": "Gestión de Cuentas Hospitalarias",
-      "description": "Sistema automatizado para la creación centralizada de cuentas de usuario en el Hospital Penco Lirquen, utilizando Playwright para automatizar workflows y reducir tiempos operativos.",
-      "stackDescription": "Backend en PHP puro con MySQL para la gestión de datos, automatización de navegador con Playwright (JavaScript) para crear cuentas en los sistemas del hospital, y Bootstrap en el frontend para una interfaz administrativa limpia y responsive.",
-      "problem": "El hospital necesitaba crear y gestionar más de 12 tipos distintos de cuentas de usuario para su personal, un proceso manual lento y propenso a errores.",
-      "solution": "Desarrollé una solución en PHP con Playwright que automatiza la creación y gestión de cuentas, centralizando todo el flujo en una interfaz unificada con Bootstrap.",
-      "results": "Se logró automatizar el 100% del proceso de creación de cuentas, eliminando errores manuales y reduciendo drásticamente los tiempos operativos del departamento de TI."
+      "title": "Gestión de cuentas hospitalarias",
+      "description": "Gestión centralizada de cuentas hospitalarias",
+      "stackDescription": "Backend desarrollado en PHP 8.2 y MySQL, con interfaz en Bootstrap, jQuery y DataTables. Integración mediante Playwright (Node.js) para automatizar sistemas externos, además de PHPMailer, PhpSpreadsheet y despliegue con Docker.",
+      "problem": "La creación de cuentas requería ingresar la misma información en distintos sistemas, realizar validaciones manuales y gestionar múltiples solicitudes, generando retrasos y aumentando el riesgo de errores.",
+      "solution": "Desarrollé un portal que centraliza todo el proceso en un único formulario. El sistema valida la información del funcionario, administra permisos, integra múltiples plataformas y automatiza la creación, activación y desactivación de cuentas mediante flujos controlados.",
+      "results": "Automatización del proceso de aprovisionamiento de cuentas.\nIntegración de sistemas internos y externos.\nReducción de tiempos y errores operativos.\nGestión segura con autenticación y control por roles."
     },
     "motor-validacion-ia": {
-      "title": "Motor de Validación IA",
-      "description": "Plataforma ganadora de una competencia de programación que analiza el avance de obra en proyectos de instalación y montaje industrial, usando Gemini Flash para verificar y contrastar reportes semanales.",
-      "stackDescription": "Backend con Laravel (PHP) y API de Gemini Flash para el análisis de reportes, frontend en React para la visualización de datos, PostgreSQL como base de datos relacional, y Python para el preprocesamiento de los reportes antes del análisis con IA.",
-      "problem": "Las empresas de instalación industrial necesitaban verificar manualmente el avance de obra contrastando reportes semanales, un proceso lento y con alta probabilidad de error humano.",
-      "solution": "Construí una plataforma con Laravel y React que integra Gemini Flash para analizar automáticamente los reportes, contrastarlos con la semana anterior y medir el progreso real de la obra.",
-      "results": "El sistema alcanzó un 90% de precisión en el análisis de avance, obteniendo el primer lugar en la competencia de programación."
+      "title": "Plataforma de Validación",
+      "description": "Plataforma inteligente para validar el avance de obras mediante inteligencia artificial",
+      "intro": "Sistema web desarrollado para verificar que el avance reportado en proyectos de construcción corresponda al estado real de la obra. La plataforma analiza fotografías de terreno, reportes diarios y la planificación del proyecto para validar automáticamente el progreso o derivarlo a revisión cuando existe incertidumbre.",
+      "award": "Proyecto ganador del primer lugar en Open Innovation AVA x UCSC 2026.",
+      "stackDescription": "Desarrollado con Laravel (PHP), React y PostgreSQL, integrando Google Gemini Flash para el análisis de imágenes y reportes. Además, utiliza Python para el procesamiento de datos y una arquitectura basada en APIs para la comunicación entre sus distintos módulos.",
+      "problem": "En proyectos de construcción, el avance suele basarse en reportes enviados desde terreno, sin una forma objetiva de verificar que la evidencia fotográfica respalde el progreso informado. Esto dificulta el seguimiento del proyecto y aumenta el riesgo de errores en la toma de decisiones.",
+      "solution": "Desarrollé una plataforma que integra la planificación del proyecto, los reportes diarios y la evidencia fotográfica en un único flujo de trabajo. Mediante inteligencia artificial, el sistema analiza cada reporte y calcula un nivel de confianza para validar automáticamente el avance o derivarlo a revisión cuando es necesario.",
+      "results": "Validación automatizada del avance de obra mediante IA.\nIntegración entre planificación, reportes y evidencia fotográfica.\nReducción del tiempo destinado a revisiones manuales.\nMayor confiabilidad en el seguimiento del progreso de los proyectos."
     }
   },
   "notFound": {

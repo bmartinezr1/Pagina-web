@@ -10,7 +10,7 @@ import { personalInfo } from '@/data/personal-info'
 
 const lines: { prompt?: string; text: string; output?: boolean }[] = [
   { prompt: '$', text: 'whoami' },
-  { prompt: '>', text: `${personalInfo.shortName} — ${personalInfo.roleEs}`, output: true },
+  { prompt: '>', text: `${personalInfo.consoleName} — ${personalInfo.roleEs}`, output: true },
   { prompt: '$', text: 'mission' },
   { prompt: '>', text: 'Construyo soluciones que tu negocio necesita', output: true },
   { prompt: '$', text: 'stack' },

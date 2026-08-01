@@ -15,5 +15,6 @@ export type Project = {
   liveUrl?: string
   repoUrl?: string
   images: string[]
+  logo?: string
   featured: boolean
 }

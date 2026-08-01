@@ -3,15 +3,16 @@
 type Props = {
   src: string
   fallback: string
+  fit?: 'contain' | 'cover'
 }
 
-export function ProjectImage({ src, fallback }: Props) {
+export function ProjectImage({ src, fallback, fit = 'contain' }: Props) {
   return (
     <>
       <img
         src={src}
         alt=""
-        className="size-full object-cover"
+        className={`size-full ${fit === 'cover' ? 'object-cover' : 'object-contain'}`}
         onError={(e) => {
           const target = e.target as HTMLImageElement
           target.style.display = 'none'

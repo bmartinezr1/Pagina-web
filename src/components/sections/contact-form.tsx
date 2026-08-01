@@ -1,11 +1,11 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
-import { useActionState } from 'react'
+import { useActionState, startTransition } from 'react'
 import { Send, MessageCircle, Loader2 } from 'lucide-react'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -38,13 +38,12 @@ function makeSchema(t: ReturnType<typeof useTranslations>) {
 
 type FormValues = z.infer<ReturnType<typeof makeSchema>>
 
-const initialState: SendMessageResult | null = null
+const initialState: SendMessageResult = { success: false }
 
 export function ContactFormSection() {
   const t = useTranslations()
   const [state, formAction, pending] = useActionState(sendMessage, initialState)
   const [submitted, setSubmitted] = useState(false)
-  const formRef = useRef<HTMLFormElement>(null)
 
   const schema = makeSchema(t)
 
@@ -63,7 +62,9 @@ export function ContactFormSection() {
     fd.append('subject', data.subject)
     fd.append('message', data.message)
     fd.append('honeypot', data.honeypot)
-    formAction(fd)
+    startTransition(() => {
+      formAction(fd)
+    })
     setSubmitted(true)
   }
 
@@ -104,7 +105,7 @@ export function ContactFormSection() {
         </div>
 
         <div className="mx-auto max-w-lg">
-          <form ref={formRef} onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <div className="sr-only" aria-hidden="true">
               <Label htmlFor="honeypot">Honeypot</Label>
               <Input id="honeypot" tabIndex={-1} autoComplete="off" {...register('honeypot')} />
@@ -160,8 +161,8 @@ export function ContactFormSection() {
               )}
             </div>
 
-            {state?.error && (
-              <p className="text-sm text-destructive">{state.error}</p>
+            {submitted && state && !state.success && (
+              <p className="text-sm text-destructive">{t('contact.form.error')}</p>
             )}
 
             <Button type="submit" className="w-full relative overflow-hidden group" disabled={pending}>

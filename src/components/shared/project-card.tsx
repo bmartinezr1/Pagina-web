@@ -26,8 +26,16 @@ export function ProjectCard({ project, locale }: Props) {
       transition={{ duration: 0.3 }}
       className="group relative overflow-hidden rounded-2xl border border-primary/10 bg-card/30 backdrop-blur-sm transition-all hover:border-primary/30 hover:card-glow sm:flex"
     >
-      <div className="relative flex items-center justify-center bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5 sm:w-80 shrink-0 aspect-video sm:aspect-auto overflow-hidden">
-        <ProjectImage src={project.images[0]} fallback={project.slug.charAt(0).toUpperCase()} />
+      <div
+        className={`relative flex items-center justify-center bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5 sm:w-80 shrink-0 overflow-hidden ${
+          project.logo ? 'aspect-[1032/873]' : 'aspect-[2/1] sm:aspect-auto'
+        }`}
+      >
+        {project.logo ? (
+          <img src={project.logo} alt="" className="size-full object-cover" />
+        ) : (
+          <ProjectImage src={project.images[0]} fallback={project.slug.charAt(0).toUpperCase()} fit="cover" />
+        )}
       </div>
 
       <div className="flex flex-col justify-center p-6 sm:p-8">

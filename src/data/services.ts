@@ -1,9 +1,9 @@
 import type { LucideIcon } from 'lucide-react'
 import {
   Globe,
-  LayoutDashboard,
-  Zap,
-  Gauge,
+  Briefcase,
+  Bot,
+  ShieldCheck,
 } from 'lucide-react'
 
 export type Service = {
@@ -34,7 +34,7 @@ export const services: Service[] = [
       'services.items.1.features.2',
       'services.items.1.features.3',
     ],
-    icon: LayoutDashboard,
+    icon: Briefcase,
   },
   {
     titleKey: 'services.items.2.title',
@@ -45,7 +45,7 @@ export const services: Service[] = [
       'services.items.2.features.2',
       'services.items.2.features.3',
     ],
-    icon: Zap,
+    icon: Bot,
   },
   {
     titleKey: 'services.items.3.title',
@@ -56,6 +56,6 @@ export const services: Service[] = [
       'services.items.3.features.2',
       'services.items.3.features.3',
     ],
-    icon: Gauge,
+    icon: ShieldCheck,
   },
 ]

@@ -5,8 +5,8 @@ import { getProjectBySlug, projects } from '@/data/projects'
 import { buttonVariants } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
-import { ArrowLeft, ExternalLink } from 'lucide-react'
-import { ProjectImage } from '@/components/shared/project-image'
+import { ArrowLeft, ExternalLink, Trophy, Check } from 'lucide-react'
+import { ProjectGallery } from '@/components/shared/project-gallery'
 
 function Github({ className }: { className?: string }) {
   return (
@@ -74,6 +74,8 @@ export default async function ProjectPage({ params }: Props) {
   const projectPath = `${slug}`
   const title = t(`${projectPath}.title`)
   const description = t(`${projectPath}.description`)
+  const intro = t.has(`${projectPath}.intro`) ? t(`${projectPath}.intro`) : ''
+  const award = t.has(`${projectPath}.award`) ? t(`${projectPath}.award`) : ''
   const stackDescription = t(`${projectPath}.stackDescription`)
   const problem = t(`${projectPath}.problem`)
   const solution = t(`${projectPath}.solution`)
@@ -92,22 +94,7 @@ export default async function ProjectPage({ params }: Props) {
 
         <div className="grid gap-12 lg:grid-cols-5">
           <div className="lg:col-span-3 space-y-6">
-            {project.images.map((imgSrc) => (
-              <div
-                key={imgSrc}
-                className="relative aspect-video w-full overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5 flex items-center justify-center"
-              >
-                <ProjectImage src={imgSrc} fallback={slug.charAt(0).toUpperCase()} />
-              </div>
-            ))}
-
-            {project.images.length === 0 && (
-              <div className="aspect-video w-full rounded-2xl bg-gradient-to-br from-primary/10 via-accent/10 to-primary/5 flex items-center justify-center">
-                <span className="text-8xl text-muted-foreground/10">
-                  {slug.charAt(0).toUpperCase()}
-                </span>
-              </div>
-            )}
+            <ProjectGallery images={project.images} fallback={slug.charAt(0).toUpperCase()} logo={project.logo} />
 
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech) => (
@@ -121,16 +108,37 @@ export default async function ProjectPage({ params }: Props) {
             </div>
           </div>
 
-          <div className="lg:col-span-2 lg:pt-12">
-            <h1 className="mb-6 text-3xl font-bold tracking-tight">
+          <div className="lg:col-span-2">
+            {project.logo && (
+              <img
+                src={project.logo}
+                alt={title}
+                className="mb-6 h-24 w-auto object-contain"
+              />
+            )}
+
+            <h1 className="mb-4 text-3xl font-bold tracking-tight">
               {title}
             </h1>
 
-            <p className="mb-8 text-muted-foreground">
+            <p className="mb-4 text-muted-foreground">
               {description}
             </p>
 
-            <div className="mb-8">
+            {intro && (
+              <p className="mb-4 text-muted-foreground">
+                {intro}
+              </p>
+            )}
+
+            {award && (
+              <p className="mb-6 inline-flex items-center gap-2 rounded-xl border border-primary/20 bg-primary/10 px-4 py-3 text-sm font-medium text-primary">
+                <Trophy className="size-4 shrink-0" />
+                {award}
+              </p>
+            )}
+
+            <div className="mb-6">
               <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                 {pt('technologies')}
               </h2>
@@ -139,7 +147,7 @@ export default async function ProjectPage({ params }: Props) {
               </p>
             </div>
 
-            <div className="mb-8 space-y-6">
+            <div className="mb-6 space-y-6">
               <div>
                 <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                   {pt('problem')}
@@ -158,7 +166,14 @@ export default async function ProjectPage({ params }: Props) {
                 <h2 className="mb-2 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                   {pt('results')}
                 </h2>
-                <p className="mb-4 text-muted-foreground">{results_text}</p>
+                <ul className="mb-4 space-y-1.5">
+                  {results_text.split('\n').map((line) => (
+                    <li key={line} className="flex items-start gap-2 text-muted-foreground">
+                      <Check className="mt-0.5 size-4 shrink-0 text-primary" />
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
                 <p className="text-sm text-muted-foreground">
                   {metrics.map((m, i) => (
                     <span key={m.label}>
