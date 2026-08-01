@@ -19,7 +19,10 @@
     "subheadline": "Creo aplicaciones web modernas, rápidas y centradas en resultados que impulsan tu negocio al siguiente nivel.",
     "ctaPrimary": "Agendar Llamada",
     "ctaSecondary": "Ver Portafolio",
-    "techBadges": ["React", "Next.js", "Node.js", "PostgreSQL", "TypeScript", "Tailwind"]
+    "techBadges": ["React", "Next.js", "Node.js", "PostgreSQL", "TypeScript", "Tailwind"],
+    "terminal": {
+      "mission": "Construyo soluciones que tu negocio necesita"
+    }
   },
   "services": {
     "title": "Servicios",
@@ -104,6 +107,7 @@
       "sending": "Enviando...",
       "success": "Mensaje enviado con éxito. Te responderé pronto.",
       "error": "Error al enviar el mensaje. Intenta de nuevo.",
+      "rateLimited": "Alcanzaste el límite de 5 mensajes por hora. Intenta de nuevo más tarde.",
       "mailtoNote": "Al enviar se abrirá tu correo con el mensaje listo para enviarse.",
       "validation": {
         "nameRequired": "El nombre es obligatorio",

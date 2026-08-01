@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -50,10 +50,17 @@ export function ContactFormSection() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
   })
+
+  useEffect(() => {
+    if (state?.success) {
+      reset()
+    }
+  }, [state, reset])
 
   function onSubmit(data: FormValues) {
     const fd = new FormData()
@@ -162,7 +169,11 @@ export function ContactFormSection() {
             </div>
 
             {submitted && state && !state.success && (
-              <p className="text-sm text-destructive">{t('contact.form.error')}</p>
+              <p className="text-sm text-destructive">
+                {state.error === 'rate'
+                  ? t('contact.form.rateLimited')
+                  : t('contact.form.error')}
+              </p>
             )}
 
             <Button type="submit" className="w-full relative overflow-hidden group" disabled={pending}>

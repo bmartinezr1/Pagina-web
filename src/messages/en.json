@@ -19,7 +19,10 @@
     "subheadline": "I build modern, fast, results-driven web applications that take your business to the next level.",
     "ctaPrimary": "Book a Call",
     "ctaSecondary": "View Portfolio",
-    "techBadges": ["React", "Next.js", "Node.js", "PostgreSQL", "TypeScript", "Tailwind"]
+    "techBadges": ["React", "Next.js", "Node.js", "PostgreSQL", "TypeScript", "Tailwind"],
+    "terminal": {
+      "mission": "I build solutions that your business needs"
+    }
   },
   "services": {
     "title": "Services",
@@ -104,6 +107,7 @@
       "sending": "Sending...",
       "success": "Message sent successfully. I'll get back to you soon.",
       "error": "Error sending message. Please try again.",
+      "rateLimited": "You've reached the limit of 5 messages per hour. Please try again later.",
       "mailtoNote": "Your email app will open with the message ready to send.",
       "validation": {
         "nameRequired": "Name is required",

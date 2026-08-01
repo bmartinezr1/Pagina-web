@@ -1,28 +1,34 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Calendar } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 import { personalInfo } from '@/data/personal-info'
-
-const lines: { prompt?: string; text: string; output?: boolean }[] = [
-  { prompt: '$', text: 'whoami' },
-  { prompt: '>', text: `${personalInfo.consoleName} — ${personalInfo.roleEs}`, output: true },
-  { prompt: '$', text: 'mission' },
-  { prompt: '>', text: 'Construyo soluciones que tu negocio necesita', output: true },
-  { prompt: '$', text: 'stack' },
-  { prompt: '>', text: 'React · Next.js · Laravel · Node.js · TypeScript · PostgreSQL', output: true },
-  { prompt: '$', text: 'contact' },
-  { prompt: '>', text: `${personalInfo.email} · ${personalInfo.phone}`, output: true },
-]
+import { useTranslations, useLocale } from 'next-intl'
 
 export function Hero() {
+  const t = useTranslations()
+  const locale = useLocale()
   const [visibleCount, setVisibleCount] = useState(0)
   const [charIndex, setCharIndex] = useState(0)
   const [showActions, setShowActions] = useState(false)
+
+  const lines = useMemo(() => {
+    const role = locale === 'es' ? personalInfo.roleEs : personalInfo.roleEn
+    return [
+      { prompt: '$', text: 'whoami' },
+      { prompt: '>', text: `${personalInfo.consoleName} — ${role}`, output: true },
+      { prompt: '$', text: 'mission' },
+      { prompt: '>', text: t('hero.terminal.mission'), output: true },
+      { prompt: '$', text: 'stack' },
+      { prompt: '>', text: 'React · Next.js · Laravel · Node.js · TypeScript · PostgreSQL', output: true },
+      { prompt: '$', text: 'contact' },
+      { prompt: '>', text: `${personalInfo.email} · ${personalInfo.phone}`, output: true },
+    ]
+  }, [locale, t])
 
   useEffect(() => {
     if (visibleCount >= lines.length) {
@@ -44,7 +50,7 @@ export function Hero() {
       }, delay)
       return () => clearTimeout(t)
     }
-  }, [visibleCount, charIndex])
+  }, [visibleCount, charIndex, lines])
 
   return (
     <section className="relative flex min-h-screen items-center overflow-hidden pt-16">
@@ -127,14 +133,14 @@ export function Hero() {
                 <span className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="relative z-10 flex items-center">
                   <Calendar className="mr-2 size-5" />
-                  Agendar Llamada
+                  {t('hero.ctaPrimary')}
                 </span>
               </Link>
               <Link
                 href="/#portfolio"
                 className={cn(buttonVariants({ size: 'lg', variant: 'outline' }), 'border-primary/30 hover:border-primary/60 hover:bg-primary/5 text-base sm:text-lg px-8 py-6')}
               >
-                Ver Portafolio
+                {t('hero.ctaSecondary')}
                 <ArrowRight className="ml-2 size-5" />
               </Link>
             </motion.div>
